@@ -10,11 +10,11 @@ import (
 
 func main() {
 	srv := http.Server{
-		Addr:    ":42069",
+		Addr:    ":3000",
 		Handler: routes(),
 	}
 
-	log.Println("Listening on port 42069...")
+	log.Println("Listening on port 3000...")
 
 	err := srv.ListenAndServe()
 	if err != nil {
@@ -53,10 +53,13 @@ func htmxWebdata(w http.ResponseWriter, r *http.Request){
 	formUrl := r.FormValue("url")
 	url := webdata.FixUrl(formUrl)
 
-	wd := webdata.GetWebData(url)
+	wd, err := webdata.GetWebData(url)
+	if err != nil {
+		log.Println("HTMX WEBDATA HANDLER: ", err)
+	}
 
 	tmpl := template.Must(template.ParseFiles("src/html/index.html"))
-	err := tmpl.ExecuteTemplate(w, "webdata", wd)
+	err = tmpl.ExecuteTemplate(w, "webdata", wd)
 	if err != nil {
 		log.Println("HTMX WEBDATA HANDLER: ", err)
 	}

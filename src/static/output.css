@@ -239,6 +239,15 @@
   .table {
     display: table;
   }
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  .max-h-24 {
+    max-height: calc(var(--spacing) * 24);
+  }
+  .max-h-48 {
+    max-height: calc(var(--spacing) * 48);
+  }
   .max-w-4xl {
     max-width: var(--container-4xl);
   }
@@ -285,6 +294,9 @@
   }
   .mask-repeat {
     mask-repeat: repeat;
+  }
+  .object-contain {
+    object-fit: contain;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
