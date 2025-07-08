@@ -1,0 +1,32 @@
+{{ block "body" . }}
+<main>
+    <div class="max-w-4xl mx-auto px-4 mt-12">
+        <h1 class="text-3xl tracking-tight font-bold">Webdata test</h1>
+        <form class="form mt-6" hx-post="/webdata" hx-target="#webdata" hx-swap="afterbegin">
+            <section class="grid gap-4">
+            <div class="grid gap-2">
+                <label for="url" class="">URL</label>
+                <input type="url" name="url" id="url" required/>
+            </div>
+            <input type="submit" class="btn" value="Submit">
+            </section>
+        </form>
+        <div id="webdata" class="mt-2">
+        </div>
+    </div>
+</main>
+{{ end }}
+
+{{ block "webdata" . }}
+<div class="mt-2 border p-2 flex gap-4">
+    <img class="max-w-48" src="{{.ImgURL}}"/>
+    <div>
+        <div class="flex gap-2">
+            <img width="24" height="24" src="{{.IconURL}}"/>
+            <p>{{.Website}}</p>
+        </div>
+        <p>{{.Title}}</p>
+        <p>{{.Description}}</p>
+    </div>
+</div>
+{{ end }}
