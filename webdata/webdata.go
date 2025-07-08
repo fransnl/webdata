@@ -27,6 +27,7 @@ func FixUrl(url string) string {
 	return "https://" + url
 }
 
+//not used
 func tls_request() *http.Client {
 	var (
 		conn *tls.Conn
@@ -61,6 +62,7 @@ func tls_request() *http.Client {
 	return c
 }
 
+//not used
 func tlsRequest() *http.Client {
 	var (
 		conn *tls.Conn
@@ -131,6 +133,7 @@ func tlsRequestDefault() *http.Client {
 	return client
 }
 
+//not used
 func clientWithProxy() *http.Client {
 	var (
 		conn *tls.Conn
